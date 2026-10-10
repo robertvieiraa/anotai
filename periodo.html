@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movimentação de gastos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <a href="/"><img src="icones/voltar.svg"></a>
+      <h1>Nome do período</h1>
+    </main>
+
+    <script>
+      let parametros = new URLSearchParams(window.location.search);
+      let periodo = parametros.get("periodo");
+
+      console.log(periodo);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movimentação de gastos</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+      <h1>Períodos</h1>
+      <div class="lista-periodos">
+        <div class="card-periodo" data-periodo="04-2026">
+          <div class="capa-periodo"></div>
+          <p class="nome-periodo">Abril</p>
+        </div>
+        <div class="card-periodo" data-periodo="03-2026">
+          <div class="capa-periodo"></div>
+          <p class="nome-periodo">Março</p>
+        </div>
+        <div class="card-periodo" data-periodo="02-2026">
+          <div class="capa-periodo"></div>
+          <p class="nome-periodo">Fevereiro</p>
+        </div>
+        <div class="card-periodo" data-periodo="01-2026">
+          <div class="capa-periodo"></div>
+          <p class="nome-periodo">Janeiro</p>
+        </div>
+      </ul>
+    </main>
+    <script>
+      let card = document.querySelectorAll(".card-periodo");
+
+      card.forEach((c) =>
+        c.addEventListener("click", () => {
+          let periodo = c.dataset.periodo;
+
+          window.location.href = `periodo.html?periodo=${periodo}`;
+        }),
+      );
+    </script>
+  </body>
+</html>

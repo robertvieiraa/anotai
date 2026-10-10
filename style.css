@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #1e1e1e;
+  --texto: #fafafa;
+}
+
+body {
+  font-family: "Google Sans Flex", Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--texto);
+}
+
+main {
+  max-width: 390px;
+  height: 100vh;
+  margin: auto;
+  padding: 32px 20px;
+  /* border: 1px dotted green; */
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+
+.capa-periodo {
+  background-color: #444;
+  width: 167px;
+  height: 167px;
+  border-radius: 16px;
+}
+
+.nome-periodo {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.lista-periodos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 16px;
+  row-gap: 20px;
+}
+
+.card-periodo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+}
