@@ -10,6 +10,7 @@
   --background-dialog: #121212;
   --texto: #fafafa;
   --primaria: #a565e5;
+  --secundaria: #444;
 }
 
 body {
@@ -20,6 +21,9 @@ body {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   max-width: 390px;
   height: 100vh;
   margin: auto;
@@ -29,11 +33,15 @@ main {
 h1 {
   font-size: 32px;
   font-weight: 400;
-  margin-bottom: 32px;
+  margin: 0px 0px 12px 0px;
+}
+
+p {
+  margin: 0px;
 }
 
 .capa-periodo {
-  background-color: #444;
+  background-color: var(--secundaria);
   width: 167px;
   height: 167px;
   border-radius: 16px;
@@ -58,7 +66,7 @@ h1 {
   cursor: pointer;
 }
 
-.btn-abrir-modal {
+.btn-add-periodo {
   background-color: var(--primaria);
   width: 60px;
   height: 60px;
@@ -67,8 +75,7 @@ h1 {
   cursor: pointer;
 }
 
-.btn-abrir-modal:hover,
-.btn-submit:hover {
+button:hover {
   opacity: 0.8;
 }
 
@@ -130,4 +137,23 @@ h1 {
 
 .form-modal div {
   text-align: center;
+}
+
+.btn-add-movimentacao {
+  background-color: var(--secundaria);
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.btn-add-movimentacao img {
+  width: 18px;
+  height: 18px;
+}
+
+.header-movimentacoes {
+  display: flex;
+  justify-content: space-between;
 }
