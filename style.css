@@ -1,17 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap");
 
 * {
-  margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
 
 :root {
   --background: #1e1e1e;
+  --background-dialog: #121212;
   --texto: #fafafa;
+  --primaria: #a565e5;
 }
 
 body {
+  margin: 0px;
   font-family: "Google Sans Flex", Arial, sans-serif;
   background-color: var(--background);
   color: var(--texto);
@@ -22,7 +24,6 @@ main {
   height: 100vh;
   margin: auto;
   padding: 32px 20px;
-  /* border: 1px dotted green; */
 }
 
 h1 {
@@ -55,4 +56,78 @@ h1 {
   flex-direction: column;
   gap: 8px;
   cursor: pointer;
+}
+
+.btn-abrir-modal {
+  background-color: var(--primaria);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-abrir-modal:hover,
+.btn-submit:hover {
+  opacity: 0.8;
+}
+
+::backdrop {
+  background-color: #000;
+  opacity: 0.75;
+}
+
+#modal {
+  background-color: var(--background-dialog);
+  color: var(--texto);
+  border: none;
+  padding: 24px 20px;
+  border-radius: 20px;
+  width: 320px;
+  height: 180px;
+}
+
+.input-modal {
+  background-color: transparent;
+  border: 1px solid #ffffff80;
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--texto);
+}
+
+.btn-submit {
+  background-color: var(--primaria);
+  padding: 7px 15px;
+  border: none;
+  color: var(--texto);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.form-modal fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: none;
+}
+
+.form-modal fieldset div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-modal label {
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.form-modal div {
+  text-align: center;
 }
