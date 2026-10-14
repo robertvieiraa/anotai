@@ -15,11 +15,58 @@
           <img src="icones/adicionar.svg">
         </button>
       </div>
+      <table class="tabela-movimentacoes">
+        <tbody>
+          <tr>
+            <td>Saída: R$ 40,8 - meias</td>
+          </tr>
+          <tr>
+            <td>Saída: R$ 10 - chiclete</td>
+          </tr>
+          <tr>
+            <td>Saída: R$ 99,9 - camisa preta</td>
+          </tr>
+          <tr>
+            <td>Saída: R$ 3 - doce</td>
+          </tr>
+        </tbody>
+      </table>
     </main>
-
+    <dialog id="modal">
+      <form class="form-modal">
+        <fieldset>
+          <div>
+            <label for="periodo">Anotar movimentação:</label>
+            <img src="icones/fechar.svg" class="btn-fechar-modal" style="cursor: pointer;">
+          </div>
+          <input 
+          type="text" 
+          name="periodo" 
+          id="periodo" 
+          placeholder="Ex: Janeiro" 
+          class="input-modal"
+          value="Saída: R$"
+          >
+        </fieldset>
+        <div>
+          <button class="btn-submit">Adicionar</button>
+        </div>
+      </form>
+    </dialog>
     <script>
       let parametros = new URLSearchParams(window.location.search);
       let periodo = parametros.get("periodo");
+      let btnAddMovimentacao = document.querySelector('.btn-add-movimentacao')
+      let modal = document.getElementById("modal")
+      let btnFecharModal = document.querySelector(".btn-fechar-modal")
+
+      btnAddMovimentacao.addEventListener('click', () => {
+        modal.showModal()
+      })
+
+      btnFecharModal.addEventListener('click', () => {
+        modal.close()
+      })
 
       console.log(periodo);
     </script>

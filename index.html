@@ -4,12 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movimentação de gastos</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main>
       <h1>Períodos</h1>
       <div class="lista-periodos">
+        <div class="card-periodo" data-periodo="07-2026">
+          <div class="capa-periodo"></div>
+          <p class="nome-periodo">Julho</p>
+        </div>
+        <div class="card-periodo" data-periodo="06-2026">
+          <div class="capa-periodo"></div>
+          <p class="nome-periodo">Junho</p>
+        </div>
+        <div class="card-periodo" data-periodo="05-2026">
+          <div class="capa-periodo"></div>
+          <p class="nome-periodo">Maio</p>
+        </div>
         <div class="card-periodo" data-periodo="04-2026">
           <div class="capa-periodo"></div>
           <p class="nome-periodo">Abril</p>
@@ -26,11 +38,9 @@
           <div class="capa-periodo"></div>
           <p class="nome-periodo">Janeiro</p>
         </div>
-      </ul>
-    </div>
-    <div style="text-align: right; margin-top: 32px;">
+      </div>
       <button class="btn-add-periodo">
-        <img src="icones/adicionar.svg">
+        <img src="icones/adicionar.svg" />
       </button>
     </main>
     <dialog id="modal">
@@ -38,15 +48,19 @@
         <fieldset>
           <div>
             <label for="periodo">Nome do período:</label>
-            <img src="icones/fechar.svg" class="btn-fechar-modal" style="cursor: pointer;">
+            <img
+              src="icones/fechar.svg"
+              class="btn-fechar-modal"
+              style="cursor: pointer"
+            />
           </div>
-          <input 
-          type="text" 
-          name="periodo" 
-          id="periodo" 
-          placeholder="Ex: Janeiro" 
-          class="input-modal"
-          >
+          <input
+            type="text"
+            name="periodo"
+            id="periodo"
+            placeholder="Ex: Janeiro"
+            class="input-modal"
+          />
         </fieldset>
         <div>
           <button class="btn-submit">Criar</button>
