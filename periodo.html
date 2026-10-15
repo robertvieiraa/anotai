@@ -12,7 +12,7 @@
       <div class="header-movimentacoes">
         <h1>Nome do período</h1>
         <button class="btn-add-movimentacao">
-          <img src="icones/adicionar.svg">
+          <img src="icones/adicionar.svg" />
         </button>
       </div>
       <table class="tabela-movimentacoes">
@@ -37,16 +37,20 @@
         <fieldset>
           <div>
             <label for="periodo">Anotar movimentação:</label>
-            <img src="icones/fechar.svg" class="btn-fechar-modal" style="cursor: pointer;">
+            <img
+              src="icones/fechar.svg"
+              class="btn-fechar-modal"
+              style="cursor: pointer"
+            />
           </div>
-          <input 
-          type="text" 
-          name="periodo" 
-          id="periodo" 
-          placeholder="Ex: Janeiro" 
-          class="input-modal"
-          value="Saída: R$"
-          >
+          <input
+            type="text"
+            name="periodo"
+            id="periodo"
+            placeholder="Ex: Janeiro"
+            class="input-modal"
+            value="Saída: R$"
+          />
         </fieldset>
         <div>
           <button class="btn-submit">Adicionar</button>
@@ -56,17 +60,17 @@
     <script>
       let parametros = new URLSearchParams(window.location.search);
       let periodo = parametros.get("periodo");
-      let btnAddMovimentacao = document.querySelector('.btn-add-movimentacao')
-      let modal = document.getElementById("modal")
-      let btnFecharModal = document.querySelector(".btn-fechar-modal")
+      let btnAddMovimentacao = document.querySelector(".btn-add-movimentacao");
+      let modal = document.getElementById("modal");
+      let btnFecharModal = document.querySelector(".btn-fechar-modal");
 
-      btnAddMovimentacao.addEventListener('click', () => {
-        modal.showModal()
-      })
+      btnAddMovimentacao.addEventListener("click", () => {
+        modal.showModal();
+      });
 
-      btnFecharModal.addEventListener('click', () => {
-        modal.close()
-      })
+      btnFecharModal.addEventListener("click", () => {
+        modal.close();
+      });
 
       console.log(periodo);
     </script>
