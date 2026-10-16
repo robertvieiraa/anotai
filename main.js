@@ -6,18 +6,33 @@ let btnSubmit = document.querySelector(".btn-submit");
 let inputModal = document.querySelector(".input-modal");
 let formModal = document.querySelector(".form-modal");
 let listaPeriodos = document.querySelector(".lista-periodos");
+let periodos = JSON.parse(localStorage.getItem("periodos")) || [];
+
+function atualizarPeriodos() {
+  localStorage.setItem("periodos", JSON.stringify(periodos));
+}
 
 formModal.addEventListener("submit", (e) => {
   e.preventDefault();
   let nomePeriodo = inputModal.value;
-  let elementoPeriodo = criarElementoPeriodo(nomePeriodo);
+  let periodo = {
+    nome: nomePeriodo,
+  };
 
-  modal.close();
+  periodos.push(periodo);
+  let elementoPeriodo = criarElementoPeriodo(periodo);
   listaPeriodos.append(elementoPeriodo);
+  atualizarPeriodos();
+  modal.close();
   inputModal.value = "";
 });
 
-function criarElementoPeriodo(nomePeriodo) {
+periodos.forEach((p) => {
+  let elementoPeriodo = criarElementoPeriodo(p);
+  listaPeriodos.append(elementoPeriodo);
+});
+
+function criarElementoPeriodo(periodo) {
   let li = document.createElement("li");
   li.classList.add("card-periodo");
   li.dataset.periodo = crypto.randomUUID();
@@ -27,7 +42,7 @@ function criarElementoPeriodo(nomePeriodo) {
 
   let nome = document.createElement("p");
   nome.classList.add("nome-periodo");
-  nome.textContent = nomePeriodo;
+  nome.textContent = periodo.nome;
 
   li.append(capa, nome);
   li.addEventListener("click", () => {

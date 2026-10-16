@@ -5,22 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movimentação de gastos</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
   </head>
   <body>
     <main>
       <h1>Períodos</h1>
-      <ul class="lista-periodos">
-        <!-- <li class="card-periodo" data-periodo="07-2026">
-          <div class="capa-periodo"></div>
-          <p class="nome-periodo">Julho</p>
-        </li>
-        <li class="card-periodo" data-periodo="06-2026">
-          <div class="capa-periodo"></div>
-          <p class="nome-periodo">Junho</p>
-        </li> -->
-      </ul>
+      <ul class="lista-periodos"></ul>
+      <p class="p-empty-state">Nenhum período criado ainda</p>
       <button class="btn-add-periodo">
-        <img src="icones/adicionar.svg" />
+        <img src="imagens/icones/adicionar.svg" />
       </button>
     </main>
     <dialog id="modal">
@@ -29,7 +22,7 @@
           <div>
             <label for="periodo">Nome do período:</label>
             <img
-              src="icones/fechar.svg"
+              src="imagens/icones/fechar.svg"
               class="btn-fechar-modal"
               style="cursor: pointer"
             />

@@ -170,3 +170,10 @@ button:hover {
 .tabela-movimentacoes tr:nth-child(2n-1) {
   background-color: #4444444d;
 }
+
+.p-empty-state {
+  display: none;
+  margin: auto;
+  font-size: 18px;
+  color: #ffffff80;
+}
