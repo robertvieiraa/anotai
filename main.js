@@ -2,7 +2,6 @@ let card = document.querySelectorAll(".card-periodo");
 let modal = document.getElementById("modal");
 let btnAddPeriodo = document.querySelector(".btn-add-periodo");
 let btnFecharModal = document.querySelector(".btn-fechar-modal");
-let btnSubmit = document.querySelector(".btn-submit");
 let inputModal = document.querySelector(".input-modal");
 let formModal = document.querySelector(".form-modal");
 let listaPeriodos = document.querySelector(".lista-periodos");
@@ -16,7 +15,9 @@ formModal.addEventListener("submit", (e) => {
   e.preventDefault();
   let nomePeriodo = inputModal.value;
   let periodo = {
+    id: crypto.randomUUID(),
     nome: nomePeriodo,
+    movimentacoes: []
   };
 
   periodos.push(periodo);
@@ -35,7 +36,7 @@ periodos.forEach((p) => {
 function criarElementoPeriodo(periodo) {
   let li = document.createElement("li");
   li.classList.add("card-periodo");
-  li.dataset.periodo = crypto.randomUUID();
+  li.dataset.periodo = periodo.id
 
   let capa = document.createElement("div");
   capa.classList.add("capa-periodo");

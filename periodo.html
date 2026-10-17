@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movimentação de gastos</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <main>
@@ -18,18 +18,9 @@
       </div>
       <table class="tabela-movimentacoes">
         <tbody>
-          <tr>
-            <td>Saída: R$ 40,8 - meias</td>
-          </tr>
-          <tr>
+          <!-- <tr>
             <td>Saída: R$ 10 - chiclete</td>
-          </tr>
-          <tr>
-            <td>Saída: R$ 99,9 - camisa preta</td>
-          </tr>
-          <tr>
-            <td>Saída: R$ 3 - doce</td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </main>
@@ -37,7 +28,7 @@
       <form class="form-modal">
         <fieldset>
           <div>
-            <label for="periodo">Anotar movimentação:</label>
+            <label for="nome-movimentacao">Anotar movimentação:</label>
             <img
               src="imagens/icones/fechar.svg"
               class="btn-fechar-modal"
@@ -46,9 +37,9 @@
           </div>
           <input
             type="text"
-            name="periodo"
-            id="periodo"
-            placeholder="Ex: Janeiro"
+            name="movimentacao"
+            id="nome-movimentacao"
+            placeholder="Ex: Saída: R$ 10 - chiclete"
             class="input-modal"
             value="Saída: R$"
           />
@@ -60,10 +51,35 @@
     </dialog>
     <script>
       let parametros = new URLSearchParams(window.location.search);
-      let periodo = parametros.get("periodo");
+      let idPeriodo = parametros.get("periodo");
       let btnAddMovimentacao = document.querySelector(".btn-add-movimentacao");
       let modal = document.getElementById("modal");
       let btnFecharModal = document.querySelector(".btn-fechar-modal");
+      let periodos = JSON.parse(localStorage.getItem("periodos"));
+      let periodoSelecionado = periodos.find((p) => p.id == idPeriodo);
+      let h1 = document.querySelector("h1");
+      let inputModal = document.querySelector(".input-modal");
+      let formModal = document.querySelector(".form-modal");
+      let corpoTabela = document.querySelector("tbody");
+
+      formModal.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let elementoMovimentacao = criarElementoMovimentacao();
+        corpoTabela.append(elementoMovimentacao);
+        modal.close();
+        inputModal.value = "Saída: R$";
+      });
+
+      function criarElementoMovimentacao() {
+        let tr = document.createElement("tr");
+
+        let td = document.createElement("td");
+        td.textContent = inputModal.value;
+
+        tr.append(td);
+
+        return tr;
+      }
 
       btnAddMovimentacao.addEventListener("click", () => {
         modal.showModal();
@@ -73,7 +89,7 @@
         modal.close();
       });
 
-      console.log(periodo);
+      h1.textContent = periodoSelecionado.nome;
     </script>
   </body>
 </html>
