@@ -24,6 +24,7 @@ formModal.addEventListener("submit", (e) => {
   let elementoPeriodo = criarElementoPeriodo(periodo);
   listaPeriodos.append(elementoPeriodo);
   atualizarPeriodos();
+  atualizarEmptyState()
   modal.close();
   inputModal.value = "";
 });
@@ -53,6 +54,16 @@ function criarElementoPeriodo(periodo) {
 
   return li;
 }
+
+function atualizarEmptyState() {
+  let paragrafo = document.querySelector('.p-empty-state')
+  if (periodos.length == 0) {
+    paragrafo.style.display = 'block'
+  } else {
+    paragrafo.style.display = 'none'
+  }
+}
+atualizarEmptyState()
 
 btnAddPeriodo.addEventListener("click", () => {
   modal.showModal();
