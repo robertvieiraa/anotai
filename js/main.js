@@ -1,15 +1,12 @@
-let card = document.querySelectorAll(".card-periodo");
-let modal = document.getElementById("modal");
-let btnAddPeriodo = document.querySelector(".btn-add-periodo");
-let btnFecharModal = document.querySelector(".btn-fechar-modal");
+import { atualizarEmptyState } from "/js/utils.js";
+import { atualizarPeriodos } from "/js/storage.js";
+
 let inputModal = document.querySelector(".input-modal");
 let formModal = document.querySelector(".form-modal");
 let listaPeriodos = document.querySelector(".lista-periodos");
 let periodos = JSON.parse(localStorage.getItem("periodos")) || [];
 
-function atualizarPeriodos() {
-  localStorage.setItem("periodos", JSON.stringify(periodos));
-}
+atualizarEmptyState(periodos);
 
 formModal.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -17,14 +14,14 @@ formModal.addEventListener("submit", (e) => {
   let periodo = {
     id: crypto.randomUUID(),
     nome: nomePeriodo,
-    movimentacoes: []
+    movimentacoes: [],
   };
 
   periodos.push(periodo);
   let elementoPeriodo = criarElementoPeriodo(periodo);
   listaPeriodos.append(elementoPeriodo);
-  atualizarPeriodos();
-  atualizarEmptyState()
+  atualizarPeriodos(periodos);
+  atualizarEmptyState(periodos);
   modal.close();
   inputModal.value = "";
 });
@@ -37,7 +34,7 @@ periodos.forEach((p) => {
 function criarElementoPeriodo(periodo) {
   let li = document.createElement("li");
   li.classList.add("card-periodo");
-  li.dataset.periodo = periodo.id
+  li.dataset.periodo = periodo.id;
 
   let capa = document.createElement("div");
   capa.classList.add("capa-periodo");
@@ -54,21 +51,3 @@ function criarElementoPeriodo(periodo) {
 
   return li;
 }
-
-function atualizarEmptyState() {
-  let paragrafo = document.querySelector('.p-empty-state')
-  if (periodos.length == 0) {
-    paragrafo.style.display = 'block'
-  } else {
-    paragrafo.style.display = 'none'
-  }
-}
-atualizarEmptyState()
-
-btnAddPeriodo.addEventListener("click", () => {
-  modal.showModal();
-});
-
-btnFecharModal.addEventListener("click", () => {
-  modal.close();
-});

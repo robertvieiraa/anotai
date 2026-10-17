@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movimentação de gastos</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <main>
       <h1>Períodos</h1>
       <ul class="lista-periodos"></ul>
       <p class="p-empty-state">Nenhum período criado ainda</p>
-      <button class="btn-add-periodo">
+      <button class="btn-add-periodo btn-abrir-modal">
         <img src="imagens/icones/adicionar.svg" />
       </button>
     </main>
@@ -40,6 +40,7 @@
         </div>
       </form>
     </dialog>
-    <script src="main.js"></script>
+    <script src="js/main.js" type="module"></script>
+    <script src="js/utils.js" type="module"></script>
   </body>
 </html>
