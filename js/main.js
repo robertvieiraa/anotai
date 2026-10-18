@@ -39,11 +39,47 @@ function criarElementoPeriodo(periodo) {
   let capa = document.createElement("div");
   capa.classList.add("capa-periodo");
 
+  let div = document.createElement("div");
+  div.classList.add("info-periodo");
+
   let nome = document.createElement("p");
   nome.classList.add("nome-periodo");
   nome.textContent = periodo.nome;
 
-  li.append(capa, nome);
+  let iconeMais = document.createElement("img");
+  iconeMais.src = "../imagens/icones/mais.svg";
+  iconeMais.onclick = () => {
+    popUp.classList.toggle("ativa");
+  };
+
+  let popUp = document.createElement("div");
+  popUp.classList.add("pop-up-acoes");
+
+  let editar = document.createElement("div");
+  editar.classList.add("acao-editar");
+  editar.classList.add("acao");
+
+  let iconeEditar = document.createElement("img");
+  iconeEditar.src = "../imagens/icones/editar.svg";
+
+  let paragrafoEditar = document.createElement("p");
+  paragrafoEditar.textContent = "Editar";
+
+  let excluir = document.createElement("div");
+  excluir.classList.add("acao-excluir");
+  excluir.classList.add("acao");
+
+  let iconeExcluir = document.createElement("img");
+  iconeExcluir.src = "../imagens/icones/excluir.svg";
+
+  let paragrafoExcluir = document.createElement("p");
+  paragrafoExcluir.textContent = "Excluir";
+
+  editar.append(iconeEditar, paragrafoEditar);
+  excluir.append(iconeExcluir, paragrafoExcluir);
+  popUp.append(editar, excluir);
+  div.append(nome, iconeMais, popUp);
+  li.append(capa, div);
   capa.addEventListener("click", () => {
     let periodo = li.dataset.periodo;
     window.location.href = `periodo.html?periodo=${periodo}`;

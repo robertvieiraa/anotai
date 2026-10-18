@@ -54,9 +54,13 @@ p {
 }
 
 .pop-up-acoes {
+  display: none;
+  position: absolute;
+  bottom: 28px;
+  right: 0px;
   width: 127px;
   background-color: var(--background);
-  border: .7px solid #FFFFFF4D;
+  border: 0.7px solid #ffffff4d;
   border-radius: 10px;
 }
 
@@ -73,16 +77,21 @@ p {
 }
 
 .acao-excluir {
-  color: #C92B2B;
+  color: #c92b2b;
 }
 
 .info-periodo {
+  position: relative;
   display: flex;
   justify-content: space-between;
 }
 
 .info-periodo img {
   cursor: pointer;
+}
+
+.ativa {
+  display: block;
 }
 
 .lista-periodos {
