@@ -45,11 +45,44 @@ p {
   width: 167px;
   height: 167px;
   border-radius: 16px;
+  cursor: pointer;
 }
 
 .nome-periodo {
   font-size: 16px;
   font-weight: 500;
+}
+
+.pop-up-acoes {
+  width: 127px;
+  background-color: var(--background);
+  border: .7px solid #FFFFFF4D;
+  border-radius: 10px;
+}
+
+.acao {
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.acao:hover {
+  opacity: 0.8;
+}
+
+.acao-excluir {
+  color: #C92B2B;
+}
+
+.info-periodo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-periodo img {
+  cursor: pointer;
 }
 
 .lista-periodos {
@@ -63,7 +96,6 @@ p {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  cursor: pointer;
 }
 
 .btn-add-periodo {

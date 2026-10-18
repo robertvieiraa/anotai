@@ -44,7 +44,7 @@ function criarElementoPeriodo(periodo) {
   nome.textContent = periodo.nome;
 
   li.append(capa, nome);
-  li.addEventListener("click", () => {
+  capa.addEventListener("click", () => {
     let periodo = li.dataset.periodo;
     window.location.href = `periodo.html?periodo=${periodo}`;
   });
