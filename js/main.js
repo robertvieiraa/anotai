@@ -8,6 +8,7 @@ let periodos = JSON.parse(localStorage.getItem("periodos")) || [];
 
 atualizarEmptyState(periodos);
 renderizarPeriodos();
+alterarTitulo();
 
 formModal.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -101,4 +102,16 @@ function excluirPeriodo(evento) {
   periodos = periodos.filter((p) => p.id != idPeriodo);
   atualizarPeriodos(periodos);
   renderizarPeriodos();
+}
+
+function alterarTitulo() {
+  let titulo = document.querySelector("h1");
+  let hora = new Date().getHours();
+  if (hora < 12) {
+    titulo.textContent = "Bom dia";
+  } else if (hora <= 18) {
+    titulo.textContent = "Boa tarde";
+  } else {
+    titulo.textContent = "Boa noite";
+  }
 }

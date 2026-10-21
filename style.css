@@ -6,7 +6,7 @@
 }
 
 :root {
-  --background: #1e1e1e;
+  --background: #171717;
   --background-dialog: #121212;
   --texto: #fafafa;
   --primaria: #a565e5;
@@ -70,6 +70,7 @@ p {
   padding: 8px 12px;
   font-size: 12px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .acao:hover {
