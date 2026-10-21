@@ -7,6 +7,7 @@ let listaPeriodos = document.querySelector(".lista-periodos");
 let periodos = JSON.parse(localStorage.getItem("periodos")) || [];
 
 atualizarEmptyState(periodos);
+renderizarPeriodos();
 
 formModal.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -26,10 +27,12 @@ formModal.addEventListener("submit", (e) => {
   inputModal.value = "";
 });
 
-periodos.forEach((p) => {
-  let elementoPeriodo = criarElementoPeriodo(p);
-  listaPeriodos.append(elementoPeriodo);
-});
+function renderizarPeriodos() {
+  periodos.forEach((p) => {
+    let elementoPeriodo = criarElementoPeriodo(p);
+    listaPeriodos.append(elementoPeriodo);
+  });
+}
 
 function criarElementoPeriodo(periodo) {
   let li = document.createElement("li");
@@ -68,6 +71,7 @@ function criarElementoPeriodo(periodo) {
   let excluir = document.createElement("div");
   excluir.classList.add("acao-excluir");
   excluir.classList.add("acao");
+  excluir.onclick = excluirPeriodo;
 
   let iconeExcluir = document.createElement("img");
   iconeExcluir.src = "../imagens/icones/excluir.svg";
@@ -81,9 +85,20 @@ function criarElementoPeriodo(periodo) {
   div.append(nome, iconeMais, popUp);
   li.append(capa, div);
   capa.addEventListener("click", () => {
-    let periodo = li.dataset.periodo;
-    window.location.href = `periodo.html?periodo=${periodo}`;
+    let id = li.dataset.periodo;
+    window.location.href = `periodo.html?periodo=${id}`;
   });
 
   return li;
+}
+
+function excluirPeriodo(evento) {
+  let periodo = evento.target.closest(".card-periodo");
+  let idPeriodo = periodo.dataset.periodo;
+  document.querySelectorAll(".card-periodo").forEach((elemento) => {
+    elemento.remove();
+  });
+  periodos = periodos.filter((p) => p.id != idPeriodo);
+  atualizarPeriodos(periodos);
+  renderizarPeriodos();
 }
