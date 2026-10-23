@@ -62,6 +62,14 @@ function criarElementoPeriodo(periodo) {
   let editar = document.createElement("div");
   editar.classList.add("acao-editar");
   editar.classList.add("acao");
+  editar.onclick = () => {
+    let novoNome = prompt("Digite o novo nome do período:");
+    if (novoNome) {
+      nome.textContent = novoNome;
+      periodo.nome = novoNome;
+      atualizarPeriodos(periodos);
+    }
+  };
 
   let iconeEditar = document.createElement("img");
   iconeEditar.src = "../imagens/icones/editar.svg";
