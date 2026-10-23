@@ -37,9 +37,19 @@ movimentacoes.forEach((m) => {
 
 function criarElementoMovimentacao(movimentacao) {
   let tr = document.createElement("tr");
-  let td = document.createElement("td");
-  td.textContent = movimentacao.descricao;
 
+  let td = document.createElement("td");
+
+  let div = document.createElement('div')
+
+  let paragrafo = document.createElement('p')
+  paragrafo.textContent = movimentacao.descricao;
+
+  let btnExcluir = document.createElement('img')
+  btnExcluir.src = "imagens/icones/excluir.svg"
+
+  div.append(paragrafo, btnExcluir)
+  td.append(div)
   tr.append(td);
 
   return tr;

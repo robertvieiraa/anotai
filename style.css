@@ -209,6 +209,13 @@ button:hover {
   border-radius: 8px;
 }
 
+.tabela-movimentacoes td div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  line-height: 18px;
+}
+
 .tabela-movimentacoes tr:nth-child(2n-1) {
   background-color: #4444444d;
 }
