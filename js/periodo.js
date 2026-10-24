@@ -8,11 +8,12 @@ let inputModal = document.querySelector(".input-modal");
 let formModal = document.querySelector(".form-modal");
 let corpoTabela = document.querySelector("tbody");
 let periodos = JSON.parse(localStorage.getItem("periodos"));
-let periodoSelecionado = periodos.find((p) => p.id == idPeriodo);
-let movimentacoes = periodoSelecionado.movimentacoes;
+let periodoAtual = periodos.find((p) => p.id == idPeriodo);
+let movimentacoes = periodoAtual.movimentacoes;
 
 atualizarEmptyState(movimentacoes);
-h1.textContent = periodoSelecionado.nome;
+renderizarMovimentacoes();
+h1.textContent = periodoAtual.nome;
 
 formModal.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -30,27 +31,43 @@ formModal.addEventListener("submit", (e) => {
   inputModal.value = "Saída: R$";
 });
 
-movimentacoes.forEach((m) => {
-  let elementoMovimentacao = criarElementoMovimentacao(m);
-  corpoTabela.append(elementoMovimentacao);
-});
+function renderizarMovimentacoes() {
+  movimentacoes.forEach((m) => {
+    let elementoMovimentacao = criarElementoMovimentacao(m);
+    corpoTabela.append(elementoMovimentacao);
+  });
+}
 
 function criarElementoMovimentacao(movimentacao) {
   let tr = document.createElement("tr");
+  tr.setAttribute("id", movimentacao.id);
 
   let td = document.createElement("td");
 
-  let div = document.createElement('div')
+  let div = document.createElement("div");
 
-  let paragrafo = document.createElement('p')
+  let paragrafo = document.createElement("p");
   paragrafo.textContent = movimentacao.descricao;
 
-  let btnExcluir = document.createElement('img')
-  btnExcluir.src = "imagens/icones/excluir.svg"
+  let excluir = document.createElement("img");
+  excluir.src = "imagens/icones/excluir.svg";
+  excluir.onclick = excluirMovimentacao;
 
-  div.append(paragrafo, btnExcluir)
-  td.append(div)
+  div.append(paragrafo, excluir);
+  td.append(div);
   tr.append(td);
 
   return tr;
+}
+
+function excluirMovimentacao(evento) {
+  let movimentacao = evento.target.closest("tr");
+  let idMovimentacao = movimentacao.id;
+  document.querySelectorAll("tr").forEach((elemento) => {
+    elemento.remove();
+  });
+  movimentacoes = movimentacoes.filter((m) => m.id != idMovimentacao);
+  periodoAtual.movimentacoes = movimentacoes;
+  atualizarPeriodos(periodos);
+  renderizarMovimentacoes();
 }

@@ -212,8 +212,13 @@ button:hover {
 .tabela-movimentacoes td div {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.tabela-movimentacoes td img {
+  width: 20px;
+  height: 20px;
 }
 
 .tabela-movimentacoes tr:nth-child(2n-1) {
