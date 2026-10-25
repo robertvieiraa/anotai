@@ -25,7 +25,7 @@ main {
   flex-direction: column;
   gap: 20px;
   max-width: 390px;
-  height: 100vh;
+  min-height: 100vh;
   margin: auto;
   padding: 32px 20px;
 }
@@ -231,4 +231,21 @@ button:hover {
   margin: auto;
   font-size: 18px;
   color: #ffffff80;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 390px;
+  margin: auto;
+  padding: 24px 20px;
+  border-top: 1px solid #fafafa1f;
+  text-align: center;
+}
+
+.links-footer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
