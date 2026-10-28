@@ -28,7 +28,7 @@ formModal.addEventListener("submit", (e) => {
   atualizarPeriodos(periodos);
   atualizarEmptyState(movimentacoes);
   modal.close();
-  inputModal.value = "Saída: R$";
+  inputModal.value = "Saída: R$ ";
 });
 
 function renderizarMovimentacoes() {
