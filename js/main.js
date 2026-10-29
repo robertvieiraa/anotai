@@ -63,7 +63,7 @@ function criarElementoPeriodo(periodo) {
   editar.classList.add("acao-editar");
   editar.classList.add("acao");
   editar.onclick = () => {
-    let novoNome = prompt("Digite o novo nome do período:");
+    let novoNome = prompt("Digite o novo nome do período:", periodo.nome);
     if (novoNome) {
       nome.textContent = novoNome;
       periodo.nome = novoNome;

@@ -49,7 +49,7 @@ function criarElementoMovimentacao(movimentacao) {
   let paragrafo = document.createElement("p");
   paragrafo.textContent = movimentacao.descricao;
   paragrafo.onclick = () => {
-    let novaDescricao = prompt("Digite a nova descrição da movimentação:");
+    let novaDescricao = prompt("Digite a nova descrição da movimentação:", movimentacao.descricao);
     if (novaDescricao) {
       paragrafo.textContent = novaDescricao;
       movimentacao.descricao = novaDescricao;
