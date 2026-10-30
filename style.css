@@ -137,7 +137,7 @@ button:hover {
   padding: 24px 20px;
   border-radius: 20px;
   width: 320px;
-  height: 180px;
+  height: fit-content;
 }
 
 .input-modal {
@@ -161,29 +161,68 @@ button:hover {
 .form-modal {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  align-items: center;
+  gap: 16px;
 }
 
-.form-modal fieldset {
+.informar-nome {
   display: flex;
   flex-direction: column;
   gap: 12px;
   border: none;
+  width: 100%;
 }
 
-.form-modal fieldset div {
+.informar-nome div {
   display: flex;
   justify-content: space-between;
 }
 
-.form-modal label {
+.informar-nome label {
   font-size: 18px;
   line-height: 23px;
 }
 
-.form-modal div {
-  text-align: center;
+.informar-valor-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.informar-valor-input div {
+  display: flex;
+  gap: 12px;
+}
+
+.informar-valor-input div label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+}
+
+input[type="radio"] {
+  position: relative;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid var(--texto);
+  margin: 0px;
+}
+
+input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--texto);
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
 }
 
 .btn-add-movimentacao {
