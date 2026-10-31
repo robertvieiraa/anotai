@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anotaí</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="shortcut icon"
-      href="imagens/favicon/favicon.ico"
-      type="image/x-icon"
-    />
-    <link rel="apple-touch-icon" href="imagens/favicon/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="imagens/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="imagens/favicon/apple-touch-icon.png">
   </head>
   <body>
     <main>
@@ -28,7 +24,7 @@
     </main>
     <dialog id="modal">
       <form class="form-modal">
-        <div class="informar-nome">
+        <fieldset>
           <div>
             <label for="nome-movimentacao">Anotar movimentação:</label>
             <img
@@ -46,26 +42,10 @@
             value="Saída: R$ "
             required
           />
+        </fieldset>
+        <div>
+          <button class="btn-submit">Adicionar</button>
         </div>
-        <div class="informar-valor-input">
-          <p>Exibir valor padrão:</p>
-          <div>
-            <label for="radio-valor-ativo">
-              <input
-                type="radio"
-                name="valor-input"
-                id="radio-valor-ativo"
-                checked
-              />
-              Sim
-            </label>
-            <label for="radio-valor-passivo">
-              <input type="radio" name="valor-input" id="radio-valor-passivo" />
-              Não
-            </label>
-          </div>
-        </div>
-        <button class="btn-submit">Adicionar</button>
       </form>
     </dialog>
     <script src="js/periodo.js" type="module"></script>

@@ -5,16 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anotaí</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="shortcut icon"
-      href="imagens/favicon/favicon.ico"
-      type="image/x-icon"
-    />
-    <link rel="apple-touch-icon" href="imagens/favicon/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="imagens/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="imagens/favicon/apple-touch-icon.png">
   </head>
   <body>
     <main>
-      <h1 style="animation: animacaoHeading 0.8s ease"></h1>
+      <h1 style="animation: animacaoHeading .8s ease;"></h1>
       <ul class="lista-periodos"></ul>
       <p class="p-empty-state">Nenhum período criado ainda</p>
       <button class="btn-add-periodo btn-abrir-modal">
@@ -23,19 +19,14 @@
     </main>
     <footer>
       <div class="links-footer">
-        <a href="https://github.com/robertvieiraa"
-          ><img src="imagens/icones/github.svg"
-        /></a>
-        <a href="#"><img src="imagens/icones/instagram.svg" /></a>
+        <a href="https://github.com/robertvieiraa"><img src="imagens/icones/github.svg"></a>
+        <a href="#"><img src="imagens/icones/instagram.svg"></a>
       </div>
-      <p>
-        <span style="color: var(--primaria)">Anotaí</span>. Desenvolvido por
-        Robert Vieira.
-      </p>
+      <p><span style="color: var(--primaria);">Anotaí</span>. Desenvolvido por Robert Vieira.</p>
     </footer>
     <dialog id="modal">
       <form class="form-modal">
-        <div class="informar-nome">
+        <fieldset>
           <div>
             <label for="periodo">Nome do período:</label>
             <img
@@ -52,8 +43,10 @@
             class="input-modal"
             required
           />
+        </fieldset>
+        <div>
+          <button class="btn-submit">Criar</button>
         </div>
-        <button class="btn-submit">Criar</button>
       </form>
     </dialog>
     <script src="js/main.js" type="module"></script>
